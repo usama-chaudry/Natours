@@ -1,0 +1,262 @@
+.card {
+    perspective: 150rem;
+    position: relative;
+    height: 50rem;
+   
+    &__side{
+       
+        height: 50rem;
+        transition: all .8s ease;
+       
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        backface-visibility: hidden;
+        border-radius: .5rem;
+        @include shadow;
+        overflow: hidden;
+
+
+
+
+        &--front{
+            background-color: $color-white;
+        }
+        &--back{
+            background-color: black;
+            transform: rotateY(180deg);
+
+            &-1{
+                background-image: linear-gradient(to right bottom, $color-secondry-light, $color-secondry-dark);
+
+            }
+            &-2{
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+
+                
+            }
+            &-3{
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+                
+            }
+
+        }
+    
+    }
+
+    &:hover &__side--front{
+        transform: rotateY(-180deg);
+
+    }
+    &:hover &__side--back{
+        transform: rotateY(0);
+
+    }
+
+    &__picture{
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;
+        clip-path: polygon(0 0,100% 0,100% 85%,0 100%);
+
+
+
+        &-1{
+            background-image: linear-gradient(to right bottom, $color-secondry-light, $color-secondry-dark),
+             url(images/nat-5-small.jpg);
+        }
+        &-2{
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark),
+             url(images/nat-6-small.jpg);
+        }
+        &-3{
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark),
+             url(images/nat-7-small.jpg);
+        }
+        // @media (min-resolution:50dpi) and (min-width:75em){
+        //     &-1{
+        //         background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark),
+        //          url(/images/nat-5.jpg);
+        //     }
+        // }
+    }
+    &__heading{
+        color: $color-white;
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        top: 12rem;
+        right: 4rem;
+        text-align: right;
+        position: absolute;
+        width: 75%;
+
+    
+    }
+    &__heading--span{
+        padding: 1rem 1.5rem;
+     
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+
+        &-1{
+            background-image: linear-gradient(to right bottom, $color-secondry-light, $color-secondry-dark);
+        }
+
+        &-2{
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+        }
+        &-3{
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+        }
+    }
+
+   &__details{
+   
+
+    padding: 3rem;
+
+
+    ul{
+        list-style: none;
+        margin: 0 auto;
+        width: 80%;
+   
+    
+        font-size: 1.2rem;
+
+
+        li{
+
+           
+            padding: 1rem;
+            text-align: center;
+
+            &:not(:last-child) {
+            border-bottom:1px solid $light-grey-2;
+            }
+            
+
+        }
+    }
+   }
+
+   &__cta{
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+  
+    }
+    
+
+    &__price--box{
+        text-transform: uppercase;
+        color: $color-white;
+        text-align: center;
+        margin-bottom: 8rem;
+        width: 90%;
+
+
+
+        &-only{
+            font-size: 1.4rem;
+
+
+        }
+        &-value{
+            font-weight: 100;
+            font-size: 6rem;
+
+        }
+
+
+
+
+
+    }
+
+
+    @media (max-width:56.25em){
+      
+        height: auto;
+       
+        &__side{
+           
+            height:auto;
+            transition: all .8s ease;
+           
+            top: 0;
+            left: 0;
+            position: relative;
+            width: 100%;
+          
+            background-color: $color-white;
+
+    
+    
+    
+    
+            &--back{
+                background-color: black;
+                clip-path: polygon(0 15%,100% 0,100% 100%,0 100%);
+                transform: rotateY(0);
+                margin-top: -4rem;
+    
+    
+            }
+        
+        }
+    
+        &:hover &__side--front{
+            transform: rotateY(0);
+    
+        }
+      
+    
+    
+       &__cta{
+    
+        position: relative;
+        left: 0%;
+        top: 0;
+        transform: translate(0);
+        @include shadow;
+        padding: 7rem 4rem 4rem 4rem;
+      
+        }
+        
+    
+        &__price--box{
+            text-transform: uppercase;
+            color: $color-white;
+           
+            margin-bottom: 4rem;
+            width: 100%;
+
+    
+    
+    
+            &-only{
+                font-size: 1.4rem;
+    
+    
+            }
+            &-value{
+
+                font-weight: 100;
+                font-size: 4rem;
+    
+            }
+        }
+    }
+
+
+
+
+
+
+}

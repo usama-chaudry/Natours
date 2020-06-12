@@ -1,0 +1,121 @@
+.popup{
+   
+    background-color: rgba(black, 0.8);
+   
+    z-index: 100000;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    transition: all .8s;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all .5s;
+    visibility: hidden;
+  
+
+    @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)){
+        backdrop-filter: blur(10px);
+        background-color: rgba(black, 0.3);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+
+    &:target{
+        opacity: 1;
+        visibility: visible;
+    }
+    &__cross{
+        position: absolute;
+        top: 2.5rem;
+        right: 2.5rem;
+        line-height: 0;
+        font-size: 4rem;
+        text-decoration: none;
+        color: black;
+
+    }
+
+    
+
+    &__content{
+
+       background-color: $color-white;
+       width: 75%;
+       
+       z-index: 500000;
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%,-50%);
+       border-radius: 3px;
+       overflow: hidden;
+       display: table;
+
+       @media (max-width:75em){
+        width: 85%;
+       }
+       @media (max-width:56.5em){
+        width: 100%;
+       }
+    
+       
+
+    }
+    &__left{
+       
+        width: 33.3333%;
+        display: table-cell;
+
+        @media (max-width:39em){
+            width: 100%;
+            // margin-right: 5rem;
+            float: left;
+
+
+        }
+    }
+
+    &__right{
+
+    width: 66.66666%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 2rem 5rem;
+    
+
+    @media (max-width:39em){
+    
+        float: right;
+        vertical-align: bottom;
+        width: 100%;
+    }
+    
+
+
+
+    }
+
+    &__img{
+        width: 100%;
+        display: block;
+
+        @media (max-width:39em){
+            width: 50%;
+            height: 25rem;
+            display: block;
+            float: left;
+        }
+
+
+    }
+
+    &__text{
+        font-size: 1.4rem;
+        column-count: 2;
+        column-gap: 4rem;
+        column-rule: 3px solid $color-dark-grey;
+
+        hyphens: auto;
+    }
+}
